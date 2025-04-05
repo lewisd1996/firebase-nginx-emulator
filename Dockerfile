@@ -7,7 +7,9 @@ RUN apk --no-cache add openjdk11-jre bash curl openssl nginx && \
 
 COPY nginx.conf /etc/nginx/
 COPY serve.sh /usr/bin/
-RUN chmod +x /usr/bin/serve.sh
+
+# Remove Windows carriage return characters
+RUN sed -i 's/\r$//' /usr/bin/serve.sh && chmod +x /usr/bin/serve.sh
 
 WORKDIR /srv/firebase
 
