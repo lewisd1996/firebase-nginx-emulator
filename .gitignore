@@ -1,2 +1,4 @@
 *.log
 firebase/data
+.DS_Store
+firebase-export-*
